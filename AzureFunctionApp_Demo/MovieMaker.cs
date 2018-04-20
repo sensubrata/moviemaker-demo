@@ -141,7 +141,8 @@ namespace AzureFunctionApp_Demo
                     var connectionString = await _client.GetSecret(queueKey);                    
                     QueueClient qClient = QueueClient.CreateFromConnectionString(connectionString);
 
-                    var brMsg = new BrokeredMessage(message);
+                    var stringMsg = JsonConvert.SerializeObject(message);
+                    var brMsg = new BrokeredMessage(stringMsg);
                     await qClient.SendAsync(brMsg);
                 }
                 catch (Exception e)
@@ -162,7 +163,8 @@ namespace AzureFunctionApp_Demo
                     {
                         try
                         {
-                            SlackMessage msg = message.GetBody<SlackMessage>();
+                            var stringMsg = message.GetBody<string>();
+                            var msg = JsonConvert.DeserializeObject<SlackMessage>(stringMsg);
                             await message.CompleteAsync();
                             return msg;
                         }
