@@ -1,0 +1,17 @@
+﻿{
+  {
+    "frameworks": {
+      "net46": {
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "Microsoft.Azure.KeyVault": "2.3.2",
+          "Microsoft.Azure.KeyVault.Extensions": "2.0.5",
+          "Microsoft.IdentityModel.Clients.ActiveDirectory": "3.19.3",
+          "Microsoft.NET.Sdk.Functions": "1.0.2",
+          "Microsoft.WindowsAzure.ConfigurationManager": "3.2.3",
+          "WindowsAzure.ServiceBus": "4.1.8"
+        }
+      }
+    }
+  }
+}
